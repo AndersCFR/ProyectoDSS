@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Subasta</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "AS_crear_subasta.css" %}?{% now "U" %}">
+</head>
+<body>
+    <form action="/A_crear_ver_subasta.html" target="" method="get" name="formDatosPersonales">
+
+     {% for item in query_results %}
+    <label for="nombre">Nombre del Proyecto</label>
+    <input type="text" name="nombre" id="nombre" value="{{ item.nombresubasta }}"/>
+    <br><br>
+    <label for="apellidos">Descripción</label>
+    <input type="text" name="apellidos" id="apellidos" value="{{ item.descripcion }}"/>
+    <br><br>
+    {% endfor %}
+
+    <button type="submit" class="crear" href>Crear Proyecto</button>
+
+  <div class="container">
+    <div class="row">
+
+
+      <table border="1" class="table" id="tablaprueba">
+        <thead class="thead-dark">
+          <tr>
+            <th>Requisito</th>
+            <th>Descripción</th>
+            <th>Presupuesto Referencial</th>
+          </tr>
+        </thead>
+          {% for item in query_results2 %}
+          <tr>
+              <th>{{ item.idrequerimiento }}</th>
+              <th>{{ item.descripcionrequerimiento }}</th>
+              <th>{{ item.presupuestoreferencial }}</th>
+          </tr>
+          {% endfor %}
+        <tbody></tbody>
+      </table>
+
+
+      <div class="form-group">
+        <button type="button" class="btn_Agregar" onclick="agregarFila()">Agregar Fila</button>
+        <button type="button" class="btn_Eliminar" onclick="eliminarFila()">Eliminar Fila</button>
+      </div>
+    </div>
+  </div>
+</form>
+    {% load static %}
+  <script src="{% static "JS_aumentar_fila.js" %}?{% now "U" %}"></script>
+
+</body>
+</html>

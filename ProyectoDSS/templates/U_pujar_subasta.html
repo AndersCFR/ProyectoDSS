@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pujar</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "US_pujar_subasta.css" %}?{% now "U" %}">
+</head>
+<body>
+    <form action="/U_subastas_disponibles.html" target="" method="get" name="formDatosPersonales">
+
+        <label for="nombre">Nombre del Proyecto</label>
+        <input type="text" name="nombre" id="nombre" value="{{ proyectos }}"/>
+        <br><br>
+        <label for="apellidos">Descripción</label>
+        <input type="text" name="apellidos" id="apellidos" value="{{ descripcion }}"/>
+        <br><br>
+        <form method="POST" action="{% url 'ofertar' %}">
+        {% csrf_token %}
+        <div class="container">
+          <div class="row">
+            <table border="1" class="table" id="tablaprueba">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Requisito</th>
+                  <th>Descripción</th>
+                  <th>Presupuesto Referencial</th>
+                  <th>Puja</th>
+                </tr>
+                {% for item in requerimientos %}
+                <tr>
+                    <th>{{ item.idrequerimiento }}</th>
+                    <th>{{ item.descripcionrequerimiento }}</th>
+                    <th>{{ item.presupuestoreferencial }}</th>
+                    <th><input type="text" name="puja+{{ item.idrequerimiento }}" id="puja"/></th>
+                </tr>
+              {% endfor %}
+              </thead>
+              <tbody></tbody>
+            </table>
+            <div class="form-group">
+                <!--<button type="submit" class="btn_Ofertar">Realizar Oferta</button>-->
+              <button type="submit" formmethod="POST" formaction="{% url 'ofertar' %}" class="btn_Ofertar">Realizar Oferta</button>
+            </div>
+           </div>
+         </div>
+        </form>
+    </form>
+</body>
+</html>

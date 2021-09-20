@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Subasta</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "AS_ver_subastas.css" %}?{% now "U" %}">
+</head>
+<body>
+
+      <button type="submit" class="volver">Volver</button>
+    <div class="container">
+        <div class="row">
+          <table border="1" class="table" id="tablaprueba">
+            <thead class="thead-dark">
+              <tr>
+                <th>Proyecto</th>
+                <th>Número de Participantes</th>
+                <th>Estado</th>
+                <th>Acción</th>
+              </tr>
+
+                <tr>
+                <th>{{ nombreProyecto }}</th>
+                <th>{{ numeroParticipantes }}</th>
+                <th>{{ estado }}</th>
+                <th><button onclick="location.href='{% url 'ganador' %}'">Finalizar</button></th>
+              </tr>
+
+            </thead>
+            <tbody></tbody>
+          </table>
+
+            <!--
+          <div class="form-group">
+            <button type="button" class="btn_Agregar" onclick="agregarFila()">Agregar Fila</button>
+            <button type="button" class="btn_Eliminar" onclick="eliminarFila()">Eliminar Fila</button>
+          </div>
+          -->
+        </div>
+      </div>
+
+    {% load static %}
+  <script src="{% static "JS_aumentar_fila_ver_subasta.js" %}?{% now "U" %}"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href='{% static "stylesLogin.css" %}?{% now "U" %}'>
+</head>
+<body>
+    <div class="login">
+        <h1>Login</h1>
+        <form method="POST" action={% url 'user_login' %}>
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Usuario" required="required" />
+            <input type="password" name="password" placeholder="Contraseña" required="required" />
+            <select name="rol" id="usuarios">
+                <option value="admin">Administrador</option>
+                <option value="user">Participante</option>
+            </select>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Ingresar.</button>
+        </form>
+    </div>
+</body>
+</html>

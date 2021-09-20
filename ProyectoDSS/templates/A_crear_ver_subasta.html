@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Subasta Inversa </title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "AS_crear_ver_subasta.css" %}?{% now "U" %}">
+</head>
+<body>
+     <div class="all">
+
+    <div class="left">
+      <div class="text"><a href="{% url 'crearSubasta' %}">Crear Subasta</a></div>
+    </div>
+    <div class="center">
+      <div class="explainer"><span>Bienvenido</span></div>
+      <div class="text">Elige una opción</div>
+    </div>
+    <div class="right">
+      <div class="text"><a href="{% url 'verSubastas' %}">Ver Subasta</a></div>
+    </div>
+  </div>
+
+
+</body>
+</html>

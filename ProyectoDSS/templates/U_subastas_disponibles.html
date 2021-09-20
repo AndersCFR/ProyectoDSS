@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subastas Disponibles</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "US_subastas_disponibles.css"%}?{% now "U" %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <table border="1" class="table" id="tablaprueba">
+            <thead class="thead-dark">
+              <tr>
+                <th>Nombre del Proyecto</th>
+                <th>Adjudicación</th>
+                <th>Estado</th>
+              </tr>
+              <tr>
+                <th>{{ proyectos }}</th>
+                <th>{{ adjudicacion }}</th>
+                <th>{{ estado }}</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+      
+          <div class="form-group">
+              <button type="button" class="btn_Pujar" onclick="location.href='{% url 'pujar' %}'">Pujar</button>
+          </div>
+        </div>
+      </div> 
+</body>
+</html>

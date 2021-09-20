@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pujar</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "US_pujar_subasta.css" %}?{% now "U" %}">
+</head>
+<body>
+    <form action="/U_subastas_disponibles.html" target="" method="get" name="formDatosPersonales">
+
+        <label for="nombre">Nombre del Proyecto</label>
+        <input type="text" name="nombre" id="nombre" value="{{ proyectos }}"/>
+        <br><br>
+        <label for="apellidos">Descripción</label>
+        <input type="text" name="apellidos" id="apellidos" value="{{ descripcion }}"/>
+        <br><br>
+
+        <div class="container">
+            <h3>Error en oferta</h3>
+            <p>
+                Una de tus ofertas en los requerimientos no ha sido al menos de la mitad del
+                valor referencia, inténtelo más tarde nuevamente.
+            </p>
+        </div>
+    </form>
+</body>
+</html>

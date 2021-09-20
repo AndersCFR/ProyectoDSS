@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Ganador</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "AS_ver_ganador.css" %}?{% now "U" %}">
+</head>
+<body>
+      <form action="#" target="" method="get" name="formDatosPersonales">
+        <label for="nombre">Nombre del Proyecto</label>
+        <input type="text" name="nombre" id="nombre" value="{{ nombreProyecto }}"/>
+        <br><br>
+        <label for="descripcion">Descripción</label>
+        <input type="text" name="descripcion" id="v" value="{{ descripcion }}"/>
+        <br><br>
+        <label for="apellidos">Ganador</label>
+        <input type="text" name="ganador" id="ganador" value="{{ ganador }}"/>
+        <br><br>
+        <button type="submit" class="volver">Volver</button>
+
+    </form>
+
+</body>
+</html>
